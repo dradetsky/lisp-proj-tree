@@ -4,6 +4,9 @@ def master_begin_to_end(repo):
     for cmt in reversed(list(repo.iter_commits())):
         yield cmt
 
+def master_last_20(repo):
+    for cmt in repo.iter_commits(max_count=20):
+        yield cmt
 
 def commit_lisp_blobs(cmt):
     pass
