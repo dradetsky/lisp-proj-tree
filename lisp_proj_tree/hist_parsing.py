@@ -1,6 +1,7 @@
 from sly.lex import LexError
 
 from .parsing import (
+    debug_parse_blob,
     parse_blob
 )
 
@@ -22,9 +23,16 @@ def parse_every_lisp_blob(repo):
             fails += report_fail_blob(cmt, blob)
 
     repo_name = repo.remote().url
+    ratio = fails/total
+    ret = [
+        total,
+        fails,
+        ratio
+    ]
     print(repo_name)
     print('t:{} f:{}'.format(total, fails))
-    print(fails/total)
+    print(ratio)
+    return ret
 
 
 def parse_head_lisp_blob(repo):
