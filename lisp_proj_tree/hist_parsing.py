@@ -63,8 +63,11 @@ def fail_summary(cmt, blob, msg=''):
 
 def report_fail_blob(cmt, blob):
     try:
-        ret = parse_blob(blob)
+        ret, par, _, _ = debug_parse_blob(blob)
         if ret is None:
+            return 1
+        elif has_errors(par):
+            breakpoint()
             return 1
         else:
             return 0
@@ -72,3 +75,7 @@ def report_fail_blob(cmt, blob):
         print(fail_summary(cmt, blob, e.args[0]))
         return 1
 
+
+def has_errors(par):
+    status = hasattr(par, 'errorok') and not par.errorok
+    return status
