@@ -47,6 +47,9 @@ def walk_changed_lisp_blobs(cmt):
     changed_paths = cmt.stats.files.keys()
     tree = cmt.tree
 
+    return walk_given_lisp_blobs(tree, changed_paths)
+
+def walk_given_lisp_blobs(tree, given_paths):
     for blob in walk_tree(tree):
-        if is_lisp_blob(blob) and (blob.path in changed_paths):
+        if is_lisp_blob(blob) and (blob.path in given_paths):
             yield blob
