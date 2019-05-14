@@ -10,6 +10,8 @@ repos=(
 
 if [ -d data ] ; then
     echo data exists
+else
+    mkdir -p data
 fi
 
 pushd data
