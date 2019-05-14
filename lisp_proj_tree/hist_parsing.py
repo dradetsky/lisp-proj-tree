@@ -18,22 +18,29 @@ from .walk_commits import (
 def parse_every_lisp_blob(repo):
     total = 0
     fails = 0
+    fail_info = []
 
     for cmt in master_begin_to_end(repo):
         for blob in walk_changed_lisp_blobs(cmt):
             total += 1
-            fails += report_fail_blob(cmt, blob)
+            maybe_fail = report_fail_blob(cmt, blob)
+            fails += maybe_fail
+            if maybe_fail != 0:
+                summary = fail_summary(cmt, blob)
+                fail_info.append(summary)
 
     repo_name = repo.remote().url
     ratio = fails/total
     ret = [
         total,
         fails,
-        ratio
+        ratio,
+        fail_info
     ]
     print(repo_name)
     print('t:{} f:{}'.format(total, fails))
     print(ratio)
+    print(fail_info)
     return ret
 
 
@@ -55,7 +62,12 @@ def parse_head_lisp_blob(repo):
 
 
 def fail_summary(cmt, blob, msg=''):
-    summary = '{path} {sha} {date} {msg}'.format(
+    summmary_obj = make_fail_summary_obj(cmt, blob, msg)
+    summary = '{path} {sha} {date} {msg}'.format(**summmary_obj)
+    return summary
+
+def make_fail_summary_obj(cmt, blob, msg=''):
+    summary = dict(
         path=blob.path,
         sha=cmt.hexsha,
         date=cmt.committed_datetime,

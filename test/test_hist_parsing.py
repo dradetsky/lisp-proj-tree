@@ -8,7 +8,7 @@ from lisp_proj_tree.hist_parsing import (
 from .util import get_repo
 
 def check_parse_all_no_fails(repo):
-    t, f, r = parse_every_lisp_blob(repo)
+    t, f, r, info = parse_every_lisp_blob(repo)
     assert t > 0
     assert f == 0
 
@@ -20,7 +20,14 @@ def test_can_parse_cl_yaml():
     repo = get_repo('cl-yaml')
     check_parse_all_no_fails(repo)
 
+# failing
 @pytest.mark.skip
 def test_can_parse_humbler():
     repo = get_repo('humbler')
+    check_parse_all_no_fails(repo)
+
+# failing
+@pytest.mark.skip
+def test_can_parse_chirp():
+    repo = get_repo('chirp')
     check_parse_all_no_fails(repo)
