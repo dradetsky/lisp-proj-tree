@@ -37,6 +37,7 @@ def parse_every_lisp_blob(repo):
         ratio,
         fail_info
     ]
+    # TODO: remove these prints in favor of usage-specific printing
     print(repo_name)
     print('t:{} f:{}'.format(total, fails))
     print(ratio)
