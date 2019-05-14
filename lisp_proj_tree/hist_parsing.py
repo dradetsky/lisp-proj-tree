@@ -1,3 +1,5 @@
+# XXX: possibly undesirable direct dependency on sly; should we fully
+# encapsulate within parser?
 from sly.lex import LexError
 
 from .parsing import (
