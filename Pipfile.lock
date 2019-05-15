@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "0cac3c59090274da3e8ff4e63f094c7cfa2cbef1c5c28c126753370702f093b4"
+            "sha256": "d2891bb1bd79b6a6d89e380555b771a75b51c178693ba2b99a05e8f40843665e"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -16,6 +16,10 @@
         ]
     },
     "default": {
+        "06c0506": {
+            "editable": true,
+            "path": "./../loltree"
+        },
         "gitdb2": {
             "hashes": [
                 "sha256:83361131a1836661a155172932a13c08bda2db3674e4caa32368aa6eb02f38c2",
@@ -31,9 +35,20 @@
             "index": "pypi",
             "version": "==2.1.11"
         },
+        "loltree": {
+            "editable": true,
+            "path": "./../loltree"
+        },
         "parse-lisp": {
             "editable": true,
             "path": "./../parse-lisp"
+        },
+        "six": {
+            "hashes": [
+                "sha256:3350809f0555b11f552448330d0b52d5f24c91a322ea4a15ef22629740f3761c",
+                "sha256:d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
+            ],
+            "version": "==1.12.0"
         },
         "sly": {
             "hashes": [
@@ -47,6 +62,13 @@
                 "sha256:29a9ffa0497e7f2be94ca0ed1ca1aa3cd4cf25a1f6b4f5f87f74b46ed91d609a"
             ],
             "version": "==2.0.5"
+        },
+        "zss": {
+            "hashes": [
+                "sha256:07bb937441929ccb82961f4f7b80fbce9e2b20d0e46ddcbcbc1fcb094f585b50"
+            ],
+            "index": "pypi",
+            "version": "==1.2.0"
         }
     },
     "develop": {

@@ -9,6 +9,9 @@ pytest = "*"
 [packages]
 gitpython = "*"
 parse-lisp = {editable = true,path = "./../parse-lisp"}
+06c0506 = {editable = true,path = "./../loltree"}
+loltree = {editable = true,path = "./../loltree"}
+zss = "*"
 
 [requires]
 python_version = "3.7"
