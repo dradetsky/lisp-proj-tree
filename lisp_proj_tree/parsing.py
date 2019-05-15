@@ -11,6 +11,14 @@ def read_blob(blob):
     code = code_bytes.decode('utf8')
     return code
 
+# debug util; we won't use this in real applications
+def parse_file(path):
+    with open(path) as fp:
+        code = fp.read()
+    in_str = '(' + code + ')'
+    lol = parse(in_str)
+    return lol
+
 def debug_parse_blob(blob):
     from parse_lisp import debug_parse
 
